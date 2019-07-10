@@ -112,3 +112,46 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+function createComponent(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // define new elements
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  article.appendChild(articleTitle)
+  article.appendChild(articleDate)
+  article.appendChild(p1)
+  article.appendChild(p2)
+  article.appendChild(p3)
+  article.appendChild(expandButton)
+
+  article.classList.add('article')
+  articleTitle.classList.add('date')
+  expandButton.classList.add('expandButton')
+  
+  // set text content
+  articleTitle.textContent = title
+  articleDate.textContent = date
+  p1.textContent = firstParagraph
+  p2.textContent = secondParagraph
+  p3.textContent = thirdParagraph
+  expandButton.textContent = 'expand'
+
+  expandButton.addEventListener('click', event => {
+    console.log('button clicked', event.target)
+    article.classList.toggle('article-open')
+  })
+  return article;
+}
+
+const articles = document.querySelector('.articles')
+
+data.forEach(data => {
+  console.log('creating panel:', data.title)
+  articles.appendChild(createComponent(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+  console.log(data.date)
+})
