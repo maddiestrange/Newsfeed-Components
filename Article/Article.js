@@ -137,7 +137,7 @@ function createComponent(title, date, firstParagraph, secondParagraph, thirdPara
   article.appendChild(expandButton)
 
   article.classList.add('article')
-  articleTitle.classList.add('date')
+  articleDate.classList.add('date')
   expandButton.classList.add('expandButton')
   
   // set text content
